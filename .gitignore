@@ -1,0 +1,30 @@
+# Ignore bundler config
+.bundle
+
+# Ignore all logfiles and tempfiles
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+
+# FrontEnd
+public/assets
+public/packs
+public/packs-test
+node_modules
+
+# Yarn
+yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore master key for decrypting credentials and more
+config/master.key
+config/credentials/*.key
+
+# Tests
+coverage
+.byebug_history
+
+# MacOS
+.DS_Store

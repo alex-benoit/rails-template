@@ -1,0 +1,20 @@
+{
+  "name": "brimstone",
+  "private": true,
+  "dependencies": {
+    "@rails/ujs": "^6.0.3",
+    "@rails/webpacker": "^5.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "lint:js": "eslint app/javascript/**/*.js",
+    "lint:scss": "stylelint app/assets/stylesheets/**/*.scss"
+  }
+}

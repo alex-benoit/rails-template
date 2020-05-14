@@ -1,0 +1,12 @@
+# GitHub
+.git
+.gitignore
+.github
+README.md
+
+# Rails
+.ruby-version
+tmp
+log
+.rubocop.yml
+.rspec

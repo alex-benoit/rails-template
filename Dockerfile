@@ -10,4 +10,4 @@ COPY . ./app
 
 RUN RAILS_ENV=production bundle exec rails assets:precompile
 
-ENTRYPOINT ["./docker-entrypoint-web.sh"]
+CMD ["./docker-entrypoint-web.sh"]

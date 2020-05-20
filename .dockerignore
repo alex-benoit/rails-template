@@ -6,7 +6,6 @@ README.md
 
 # Rails
 .ruby-version
-tmp
-log
 .rubocop.yml
 .rspec
+spec

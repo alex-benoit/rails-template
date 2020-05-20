@@ -14,6 +14,9 @@ gem 'rails'
 gem 'sass-rails'
 gem 'webpacker'
 
+# Utilities
+gem 'aws-healthcheck'
+
 group :test do
   gem 'capybara'
   gem 'rspec-rails'

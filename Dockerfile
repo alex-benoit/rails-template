@@ -6,6 +6,6 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 RUN bundle install --deployment --without development test --jobs 4
 
-COPY . ./app
+COPY . /app
 
 RUN RAILS_ENV=production bundle exec rails assets:precompile

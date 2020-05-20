@@ -9,5 +9,3 @@ RUN bundle install --deployment --without development test --jobs 4
 COPY . ./app
 
 RUN RAILS_ENV=production bundle exec rails assets:precompile
-
-CMD ["./docker-entrypoint-web.sh"]

@@ -47,7 +47,7 @@ jobs:
       - name: Ruby dependencies vulnerabilities check
         run: bundle exec bundle-audit check --update
       - name: JS dependencies vulnerabilities check
-        run: yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0 # above High only https://github.com/yarnpkg/yarn/issues/7260#issuecomment-506556626
+        run: yarn audit; [[ $? -ge 4 ]] && exit 1 || exit 0 # above Moderate only https://github.com/yarnpkg/yarn/issues/7260#issuecomment-506556626
 
   # test:
   #   name: Test
@@ -137,14 +137,14 @@ jobs:
         with:
           task-definition: task-definition.json
           container-name: ivy-staging-web
-          image: ${{ secrets.STAGING_ECR_REPOSITORY_URL }}:${{ github.sha }}
+          image: ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }}
       - name: Render new ECS task definition
         id: render-worker-task-definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ steps.render-web-task-definition.outputs.task-definition }}
           container-name: ivy-staging-worker
-          image: ${{ secrets.STAGING_ECR_REPOSITORY_URL }}:${{ github.sha }}
+          image: ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }}
       - name: Deploy to ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:

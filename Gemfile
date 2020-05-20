@@ -41,3 +41,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
 end
+
+group :development, :test do
+  gem 'dotenv-rails'
+end

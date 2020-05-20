@@ -47,7 +47,7 @@ jobs:
       - name: Ruby dependencies vulnerabilities check
         run: bundle exec bundle-audit check --update
       - name: JS dependencies vulnerabilities check
-        run: yarn audit
+        run: yarn audit; [[ $? -ge 8 ]] && exit 1 || exit 0 # above High only https://github.com/yarnpkg/yarn/issues/7260#issuecomment-506556626
 
   # test:
   #   name: Test

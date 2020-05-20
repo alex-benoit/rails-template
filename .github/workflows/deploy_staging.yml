@@ -36,7 +36,7 @@ jobs:
       - name: Ruby linter
         run: bundle exec rubocop --parallel
       - name: ERB linter
-        run: bundle exec erblint --lint-all
+        run: bundle exec erblint app/**/*.html.erb
       - name: JS linter
         run: yarn lint:js
       - name: SCSS linter

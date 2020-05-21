@@ -9,6 +9,7 @@ ruby '2.7.1'
 gem 'pg'
 gem 'puma'
 gem 'rails'
+gem 'sidekiq'
 
 # FrontEnd
 gem 'sass-rails'

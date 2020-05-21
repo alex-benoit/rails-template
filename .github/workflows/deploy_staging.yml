@@ -151,4 +151,4 @@ jobs:
           cluster: ivy-staging
           service: ivy-staging
           wait-for-service-stability: true
-          wait-for-minutes: 4
+          wait-for-minutes: 6

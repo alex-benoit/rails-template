@@ -10,6 +10,7 @@ development:
 test:
   <<: *default
   database: ivy_test
+  host: localhost
 
 production:
   <<: *default

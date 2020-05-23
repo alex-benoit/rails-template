@@ -90,15 +90,15 @@ jobs:
       # - name: Install dependent libraries
       #   run: sudo apt-get install libpq-dev
 
-      - name: Setup test database
+      - name: Run tests
         env:
           RAILS_ENV: test
           POSTGRES_HOST: localhost
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-        run: bin/rails db:setup
-      - name: Run tests
-        run: bin/rspec
+        run: |
+          bin/rails db:setup
+          bin/rspec
 
   deploy:
     runs-on: ubuntu-latest

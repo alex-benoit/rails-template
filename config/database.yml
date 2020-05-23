@@ -9,12 +9,13 @@ development:
 
 test:
   <<: *default
+  host: <%= ENV.fetch('POSTGRES_HOST') %>
   database: ivy_test
-  host: <%= ENV['POSTGRES_HOST'] %>
+  password: <%= ENV.fetch('RDS_PASSWORD') %>
 
 production:
   <<: *default
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV.fetch('RDS_HOSTNAME') %>
+  database: <%= ENV.fetch('RDS_DB_NAME') %>
+  username: <%= ENV.fetch('RDS_USERNAME') %>
+  password: <%= ENV.fetch('RDS_PASSWORD') %>

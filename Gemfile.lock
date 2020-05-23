@@ -298,7 +298,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   sass-rails
-  selenium-webdriver
   sidekiq
   spring
   spring-watcher-listen

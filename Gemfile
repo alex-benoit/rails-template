@@ -21,7 +21,6 @@ gem 'aws-healthcheck'
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'selenium-webdriver'
   gem 'webdrivers'
 
   gem 'erb_lint', require: false

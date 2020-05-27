@@ -36,11 +36,11 @@ jobs:
       - name: Ruby linter
         run: bundle exec rubocop --parallel
       - name: ERB linter
-        run: bundle exec erblint app/**/*.html.erb
+        run: bundle exec rake erblint:run
       - name: JS linter
-        run: yarn lint:js
+        run: bundle exec rake eslint:run
       - name: SCSS linter
-        run: yarn lint:scss
+        run: bundle exec rake stylelint:run
 
       - name: Static code analysis
         run: bundle exec brakeman -q

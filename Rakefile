@@ -16,7 +16,7 @@ end
 
 task(:default).clear
 task default: [
-  # 'factory_bot:lint',
+  'factory_bot:lint',
   'rubocop:auto_correct',
   'erblint:auto_correct',
   'stylelint:auto_correct',

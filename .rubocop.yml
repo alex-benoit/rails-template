@@ -19,3 +19,6 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false

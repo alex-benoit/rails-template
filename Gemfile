@@ -19,8 +19,10 @@ gem 'webpacker'
 gem 'aws-healthcheck'
 
 group :test do
+  gem 'factory_bot_rails'
+
   gem 'capybara'
-  gem 'rspec-rails'
+  gem 'simplecov', require: false
   gem 'webdrivers'
 
   gem 'erb_lint', require: false
@@ -44,4 +46,5 @@ end
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'rspec-rails' # If you move this to the test group, you loose the rake rspec task (sliently ignored)
 end

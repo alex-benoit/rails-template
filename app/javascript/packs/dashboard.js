@@ -1,2 +1,2 @@
 const content = document.getElementById('content');
-content.innerText = 'Hi you.';
+content.innerText = 'Hi you!';

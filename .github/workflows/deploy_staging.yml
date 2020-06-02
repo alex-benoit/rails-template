@@ -1,8 +1,7 @@
 name: Deploy Staging
 on:
   push:
-    branches:
-      - master
+    branches: master
 
 jobs:
   check:
@@ -109,16 +108,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup AWS CLI
+      - name: Setup AWS cli
         uses: aws-actions/configure-aws-credentials@master
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-      - name: Log in Docker Client to ECR
+      - name: Log in Docker client to ECR
         uses: aws-actions/amazon-ecr-login@master
 
-      - name: Build and Push Image to ECR
+      - name: Build and push image to ECR
         run: |
           docker pull ${{ secrets.ECR_REPOSITORY_URL }}:latest || true
           docker build --cache-from ${{ secrets.ECR_REPOSITORY_URL }}:latest -t ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }} -t ${{ secrets.ECR_REPOSITORY_URL }}:latest .
@@ -126,21 +125,23 @@ jobs:
 
       - name: Download latest ECS task definition
         run: aws ecs describe-task-definition --task-definition ivy-staging --query taskDefinition > task-definition.json
-      - name: Render new ECS task definition
+
+      - name: Render new ECS web task definition
         id: render-web-task-definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
           container-name: ivy-staging-web
           image: ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }}
-      - name: Render new ECS task definition
+      - name: Render new ECS worker task definition
         id: render-worker-task-definition
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ steps.render-web-task-definition.outputs.task-definition }}
           container-name: ivy-staging-worker
           image: ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }}
-      - name: Deploy to ECS service
+
+      - name: Deploy task definition to ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-worker-task-definition.outputs.task-definition }}

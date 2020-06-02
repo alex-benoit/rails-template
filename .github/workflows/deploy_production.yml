@@ -18,12 +18,12 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@master
 
-      - name: Download Latest ECS Task Definition
-        run: aws ecs describe-task-definition --task-definition ivy-production --query taskDefinition > task-definition.json
-
       - name: Check latest image from most recent staging build exists
         id: check-image-exists-in-ecr
         run: aws ecr describe-images --repository-name ivy --image-ids imageTag=${{ github.sha }}
+
+      - name: Download Latest ECS Task Definition
+        run: aws ecs describe-task-definition --task-definition ivy-production --query taskDefinition > task-definition.json
 
       - name: Render the new ECS Web Task Definition
         id: render-web-task-definition-production

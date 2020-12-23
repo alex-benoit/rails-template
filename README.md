@@ -1,19 +1,12 @@
 # README
 
-![Deploy Staging](https://github.com/ivy-app/brimstone/workflows/Deploy%20Staging/badge.svg)
-
 # Overview
 
-Brimstone is a Rails application which serves:
-
-- The JSON API used by the patient's [iOS app (Monarch)](https://github.com/ivy-app/monarch)
-- The HCP dashboard to review patient data
+Rails 6 template
 
 # Deployment
 
-We use [GitHub Actions](https://github.com/ivy-app/brimstone/actions) to deploy the Rails
-application. See the [infrastructure repository](https://github.com/ivy-app/infrastructure#key-aws-services) for more
-information about the AWS services being used.
+[GitHub Actions](https://github.com/ivy-app/brimstone/actions) to deploy the Rails application
 
 # Development
 
@@ -30,8 +23,8 @@ Prerequisites:
 Setup steps:
 
 ```
-git clone git@github.com:ivy-app/brimstone.git
-cd brimstone
+git clone git@github.com:alex-benoit/rails-template.git
+cd rails-template
 bin/setup
 ```
 

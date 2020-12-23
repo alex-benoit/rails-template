@@ -1,4 +1,4 @@
-FROM ruby:2.7.1-alpine
+FROM ruby:2.7.2-alpine
 RUN apk add --update --no-cache build-base git nodejs yarn tzdata postgresql-dev
 
 WORKDIR /app
